@@ -7,13 +7,16 @@ import getUser from "./routes/user.routes.js"
 
 import { connecttomongo } from './DB/connectTomongoDb.js';
 import cookieParser from 'cookie-parser';
+import {app, server} from "./socket/socket.js"
 
-const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+import jwt from 'jsonwebtoken';
+
+
 
 app.use(cookieParser());
 
@@ -30,6 +33,6 @@ app.use("/api/user",getUser);
 connecttomongo();
 
 // Start server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
