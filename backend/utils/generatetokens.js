@@ -10,7 +10,7 @@ const generateTokenandsetCookie = (userId, res) => {
         httpOnly: true,
         maxAge: (1000 * 60 * 60 * 24 * 15),
         sameSite: "strict",
-        secure: true
+        secure: process.env.NODE_ENV !="development",
       });
     };  
     export default generateTokenandsetCookie
