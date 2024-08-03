@@ -11,12 +11,23 @@ import cookieParser from 'cookie-parser';
 import {app, server} from "./socket/socket.js"
 
 
+
+
+
+
 const __dirname=path.resolve();
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://baat-cheet-chat-application-1.onrender.com',
+    methods: ['GET', 'POST'],
+    credentials: true,
+  }));
+
+
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 import jwt from 'jsonwebtoken';
