@@ -1,7 +1,7 @@
 import path from "path"; 
 import express from 'express';
 import dotenv from 'dotenv';
-
+const cors = require('cors');
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js"
 import getUser from "./routes/user.routes.js"
@@ -16,6 +16,7 @@ const __dirname=path.resolve();
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
+app.use(cors());
 // Middleware to parse JSON bodies
 app.use(express.json());
 import jwt from 'jsonwebtoken';
