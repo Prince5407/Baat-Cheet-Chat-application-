@@ -9,6 +9,8 @@ const io = new Server(server, {
 	cors: {
 		origin: ["https://baat-cheet-chat-application-1.onrender.com"],
 		methods: ["GET", "POST"],
+		credentials: true
+		
 	},
 });
 
